@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 // import accessibilityData from './data/accessibilities.json'
 // import servicesData from './data/services.json'
+import helper from './utils/helper';
 
 const HotelInfo = () => {
   const [accessibilityData, setAccessibilityData] = useState([]);
@@ -8,10 +9,7 @@ const HotelInfo = () => {
 
   const loadAccessibilityData = async () => {
     // Query the API Gateway
-    const resp = await fetch(
-      'https://c5w21idkjk.execute-api.us-east-2.amazonaws.com/Production/accessibilities'
-    );
-    let jsonData = await resp.json();
+    let jsonData = await helper.fetchData('accessibilities');
 
     // Assign response data to our state variable
     setAccessibilityData(jsonData);
@@ -19,10 +17,7 @@ const HotelInfo = () => {
 
   const loadServicesData = async () => {
     // Query the API Gateway
-    const resp = await fetch(
-      'https://c5w21idkjk.execute-api.us-east-2.amazonaws.com/Production/services'
-    );
-    let jsonData = await resp.json();
+    let jsonData = await helper.fetchData('services');
 
     // Assign response data to our state variable
     setServicesData(jsonData);
