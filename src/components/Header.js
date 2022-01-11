@@ -7,7 +7,7 @@ const Header = () => {
   const loadMenuLinksData = async () => {
     // Query the API Gateway
     const resp = await fetch(
-      'https://c5w21idkjk.execute-api.us-east-2.amazonaws.com/Production/menu_links'
+      'https://c5w21idkjk.execute-api.us-east-2.amazonaws.com/Production/menu-links'
     );
     let jsonData = await resp.json();
 
